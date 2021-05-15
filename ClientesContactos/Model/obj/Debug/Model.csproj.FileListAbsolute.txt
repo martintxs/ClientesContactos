@@ -1,0 +1,6 @@
+D:\Documentos\Proyectos\Griver\ClientesContactos\ClientesContactos\Model\bin\Debug\Model.dll
+D:\Documentos\Proyectos\Griver\ClientesContactos\ClientesContactos\Model\bin\Debug\Model.pdb
+D:\Documentos\Proyectos\Griver\ClientesContactos\ClientesContactos\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Documentos\Proyectos\Griver\ClientesContactos\ClientesContactos\Model\obj\Debug\Model.dll
+D:\Documentos\Proyectos\Griver\ClientesContactos\ClientesContactos\Model\obj\Debug\Model.pdb
+D:\Documentos\Proyectos\Griver\ClientesContactos\ClientesContactos\Model\obj\Debug\Model.csprojAssemblyReference.cache

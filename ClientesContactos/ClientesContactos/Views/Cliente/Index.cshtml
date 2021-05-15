@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Examen";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <button id="btnNuevoCliente" class="btn btn-primary">Nuevo</button>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                        <div class="table-responsive">
+                            <table id="dtClientes" class="table table-bordered table-hover table-sm">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col" class="text-center">Razón Social</th>
+                                        <th scope="col" class="text-center">Nombre Comercial</th>
+                                        <th scope="col" class="text-center">RFC</th>
+                                        <th scope="col" class="text-center">CURP</th>
+                                        <th scope="col" style="width: 10%">Contactos</th>
+                                        <th scope="col" style="width: 10%">Editar</th>
+                                        <th scope="col" style="width: 10%">Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("../Shared/_ModalCliente")
+@Html.Partial("../Shared/_ModalContactos")
+@Html.Partial("../Shared/_ModalContactoDetalle")
+@Html.Hidden("urlLeerClientes", @Url.Action("ReadAll", "Cliente"))
+@Html.Hidden("urlLeerCliente", @Url.Action("ReadId", "Cliente"))
+@Html.Hidden("urlSaveCliente", @Url.Action("Save", "Cliente"))
+@Html.Hidden("urlDeleteCliente", @Url.Action("Delete", "Cliente"))
+@Html.Hidden("urlLeerContactos", @Url.Action("ReadAll", "Contacto"))
+@Html.Hidden("urlLeerContacto", @Url.Action("ReadId", "Contacto"))
+@Html.Hidden("urlSaveContacto", @Url.Action("Save", "Contacto"))
+@Html.Hidden("urlDeleteContacto", @Url.Action("Delete", "Contacto"))
+@section scripts{
+    <script src="~/Scripts/Proyecto/Cliente/Index.js"></script>
+}
