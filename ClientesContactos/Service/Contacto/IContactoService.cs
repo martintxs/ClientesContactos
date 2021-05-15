@@ -6,7 +6,7 @@ namespace Service.Contacto
 {
     public interface IContactoService
     {
-        (VoRespuesta, List<VoContacto>) ReadAll(int Id);
+        (VoRespuesta, List<VoContacto>) ReadAll(VoContacto Contacto);
         (VoRespuesta, VoContacto) ReadId(int Id);
         VoRespuesta Save(VoContacto Contacto);
         VoRespuesta Delete(int Id);

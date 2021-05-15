@@ -4,5 +4,8 @@
 
     partial class dsReporte
     {
+        partial class dtContactosDataTable
+        {
+        }
     }
 }

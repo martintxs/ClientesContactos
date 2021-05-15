@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Model.Contacto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace Model.Model.Cliente
         public string RFC { get; set; }
         public string CURP { get; set; }
         public string Direccion { get; set; }
+        public List<VoContacto> Contactos { get; set; }
     }
 }

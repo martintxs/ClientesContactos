@@ -19,9 +19,9 @@ namespace ClientesContactos.Controllers
         }
 
         [HttpPost]
-        public ActionResult ReadAll(int Id)
+        public ActionResult ReadAll(VoContacto Contacto)
         {
-            var (Respuesta, Contactos) = _IContactoService.ReadAll(Id);
+            var (Respuesta, Contactos) = _IContactoService.ReadAll(Contacto);
             return Json(new { Respuesta, Contactos });
         }
 

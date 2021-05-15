@@ -1,9 +1,13 @@
-﻿using Model.Model.Cliente;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using Model.Model.Cliente;
 using Model.Model.Respuesta;
+using Reports.Reporte;
 using Repository.Cliente;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 
 namespace Service.Cliente
@@ -23,19 +27,19 @@ namespace Service.Cliente
             var respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoRespuesta
                              {
-                                 Estatus = d.Field<bool>("Estatus"),
+                                 Estatus = Convert.ToBoolean( d.Field<object>("Estatus")),
                                  Mensaje = d.Field<string>("Mensaje")
                              }).FirstOrDefault();
             return respuesta;
         }
 
-        public (VoRespuesta, List<VoCliente>) ReadAll()
+        public (VoRespuesta, List<VoCliente>) ReadAll(VoCliente Cliente)
         {
             VoRespuesta voRespuesta = new VoRespuesta { Estatus = true };
             var respuesta = new List<VoCliente>();
             try
             {
-                var resultado = _ICliente.ReadAll();
+                var resultado = _ICliente.ReadAll(Cliente);
                 respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoCliente
                              {
@@ -63,7 +67,7 @@ namespace Service.Cliente
             var respuesta = new VoCliente();
             try
             {
-                var resultado = _ICliente.ReadAll();
+                var resultado = _ICliente.ReadId(Id);
                 respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoCliente
                              {
@@ -85,13 +89,43 @@ namespace Service.Cliente
             return (voRespuesta, respuesta);
         }
 
+        public (VoRespuesta, byte[]) Reporte(int Id)
+        {
+            VoRespuesta voRespuesta = new VoRespuesta { Estatus = true };
+            byte[] respuesta = null;
+            try
+            {
+                ReportDocument rptCliente = new Reporte();
+                var ds = _ICliente.Reporte(Id);
+                ds.Tables[0].TableName = "dtCliente";
+                ds.Tables[1].TableName = "dtContactos";
+                rptCliente.SetDataSource(ds);
+                Stream pdf = rptCliente.ExportToStream(ExportFormatType.PortableDocFormat);
+                
+                rptCliente.Close();
+
+                using (BinaryReader br = new BinaryReader(pdf))
+                {
+                    respuesta = br.ReadBytes((int)pdf.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+                voRespuesta.Estatus = false;
+                voRespuesta.Mensaje = ex.Message;
+                return (voRespuesta, respuesta);
+            }
+
+            return (voRespuesta, respuesta);
+        }
+
         public VoRespuesta Save(VoCliente Cliente)
         {
             var resultado = _ICliente.Save(Cliente);
             var respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoRespuesta
                              {
-                                 Estatus = d.Field<bool>("Estatus"),
+                                 Estatus = Convert.ToBoolean(d.Field<object>("Estatus")),
                                  Mensaje = d.Field<string>("Mensaje")
                              }).FirstOrDefault();
             return respuesta;

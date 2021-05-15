@@ -141,6 +141,9 @@
     <Content Include="Content\CSS\Plugin\jQueryUI\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\CSS\Plugin\jQueryUI\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\CSS\Plugin\jQueryUI\jquery-ui.min.css" />
+    <Content Include="Content\CSS\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\CSS\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\CSS\webfonts\fa-solid-900.svg" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -185,11 +188,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\CSS\Plugin\Bootstrap\bootstrap.min.css.map" />
+    <Content Include="Content\CSS\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\CSS\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\CSS\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\CSS\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\CSS\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\CSS\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\CSS\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\CSS\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\CSS\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\CSS\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\CSS\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\CSS\webfonts\fa-solid-900.woff2" />
     <None Include="packages.config" />
     <Content Include="Scripts\Plugins\Bootstrap\bootstrap.min.js.map" />
     <Content Include="Views\Shared\_ModalCliente.cshtml" />
-    <Content Include="Views\Shared\_ModalContactoDetalle.cshtml" />
+    <Content Include="Views\Shared\_ModalContacto.cshtml" />
     <Content Include="Views\Shared\_ModalContactos.cshtml" />
+    <Content Include="Views\Shared\_ModalClienteFiltro.cshtml" />
+    <Content Include="Views\Shared\_ModalContactoFiltro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

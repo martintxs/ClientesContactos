@@ -1,0 +1,54 @@
+﻿<!-- #region Modal Clientes -->
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="modalClienteFiltro" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-group col-xs-12 col-md-12">
+                                <small>Razón Social</small>
+                                <input type="text" class="form-control" id="txtRazonSocialFiltro" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-xs-12 col-md-12">
+                                <small>Nombre Comercial</small>
+                                <input type="text" class="form-control" id="txtNombreComercialFiltro" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-xs-12 col-md-12">
+                                <small>RFC</small>
+                                <input type="text" class="form-control" id="txtRFCFiltro" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-xs-12 col-md-12">
+                                <small>CURP</small>
+                                <input type="text" class="form-control" id="txtCURPFiltro" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-xs-12 col-md-12">
+                                <small>Dirección</small>
+                                <textarea class="form-control" id="txtDireccionFiltro" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btnFiltrarCliente">Filtrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #endregion -->

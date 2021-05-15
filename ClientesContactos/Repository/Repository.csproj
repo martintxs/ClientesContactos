@@ -56,9 +56,6 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net45\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
-    <Reference Include="ModelosDeProceso">
-      <HintPath>..\..\Dll\ModelosDeProceso.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -80,7 +77,9 @@
     <Compile Include="Cliente\ICliente.cs" />
     <Compile Include="Contacto\Contacto.cs" />
     <Compile Include="Contacto\IContacto.cs" />
-    <Compile Include="Persistencia.cs" />
+    <Compile Include="DB\ConexionBaseDeDatos.cs" />
+    <Compile Include="DB\Persistencia.cs" />
+    <Compile Include="DB\SqlParametros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,7 @@
 ﻿using Model.Model.Contacto;
-using ModelosDeProceso.Colecciones;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Repository.DB;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Repository.Contacto
 {
@@ -24,10 +19,16 @@ namespace Repository.Contacto
             return respuesta;
         }
 
-        public DataSet ReadAll(int Id)
+        public DataSet ReadAll(VoContacto Contacto)
         {
             parametros = new SqlParametros();
-            parametros.agregar("@IdCliente", Id);
+            parametros.agregar("@IdCliente", Contacto.IdCliente);
+            parametros.agregar("@Nombre", Contacto.Nombre ?? "");
+            parametros.agregar("@ApellidoPaterno", Contacto.ApellidoPaterno ?? "");
+            parametros.agregar("@ApellidoMaterno", Contacto.ApellidoMaterno ?? "");
+            parametros.agregar("@Telefono", Contacto.Telefono ?? "");
+            parametros.agregar("@Direccion", Contacto.Direccion ?? "");
+            parametros.agregar("@Puesto", Contacto.Puesto ?? "");
             respuesta = new DataSet();
             Persistencia.sp(parametros, ref respuesta, new Contacto());
             return respuesta;
@@ -46,6 +47,7 @@ namespace Repository.Contacto
         {
             parametros = new SqlParametros();
             parametros.agregar("@IdContacto", Contacto.IdContacto);
+            parametros.agregar("@IdCliente", Contacto.IdCliente);
             parametros.agregar("@Nombre", Contacto.Nombre);
             parametros.agregar("@ApellidoPaterno", Contacto.ApellidoPaterno);
             parametros.agregar("@ApellidoMaterno", Contacto.ApellidoMaterno);

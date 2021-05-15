@@ -22,19 +22,19 @@ namespace Service.Contacto
             var respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoRespuesta
                              {
-                                 Estatus = d.Field<bool>("Estatus"),
+                                 Estatus = Convert.ToBoolean(d.Field<object>("Estatus")),
                                  Mensaje = d.Field<string>("Mensaje")
                              }).FirstOrDefault();
             return respuesta;
         }
 
-        public (VoRespuesta, List<VoContacto>) ReadAll(int Id)
+        public (VoRespuesta, List<VoContacto>) ReadAll(VoContacto Contacto)
         {
             VoRespuesta voRespuesta = new VoRespuesta { Estatus = true };
             var respuesta = new List<VoContacto>();
             try
             {
-                var resultado = _IContacto.ReadAll(Id);
+                var resultado = _IContacto.ReadAll(Contacto);
                 respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoContacto
                              {
@@ -64,7 +64,7 @@ namespace Service.Contacto
             var respuesta = new VoContacto();
             try
             {
-                var resultado = _IContacto.ReadAll();
+                var resultado = _IContacto.ReadId(Id);
                 respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoContacto
                              {
@@ -93,7 +93,7 @@ namespace Service.Contacto
             var respuesta = (from DataRow d in resultado.Tables[0].AsEnumerable()
                              select new VoRespuesta
                              {
-                                 Estatus = d.Field<bool>("Estatus"),
+                                 Estatus = Convert.ToBoolean(d.Field<object>("Estatus")),
                                  Mensaje = d.Field<string>("Mensaje")
                              }).FirstOrDefault();
             return respuesta;

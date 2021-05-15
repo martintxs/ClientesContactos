@@ -22,9 +22,9 @@ namespace ClientesContactos.Controllers
         }
 
         [HttpPost]
-        public ActionResult ReadAll()
+        public ActionResult ReadAll(VoCliente Cliente)
         {
-            var (Respuesta, Clientes) = _IClienteService.ReadAll();
+            var (Respuesta, Clientes) = _IClienteService.ReadAll(Cliente);
             return Json(new { Respuesta, Clientes });
         }
 
@@ -47,6 +47,13 @@ namespace ClientesContactos.Controllers
         {
             var Respuesta = _IClienteService.Delete(Id);
             return Json(new { Respuesta });
+        }
+
+        [HttpGet]
+        public ActionResult Reporte(int Id)
+        {
+            var (Respuesta, Pdf) = _IClienteService.Reporte(Id);
+            return File(Pdf, "application/pdf");
         }
     }
 }

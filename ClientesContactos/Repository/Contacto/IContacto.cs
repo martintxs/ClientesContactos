@@ -10,7 +10,7 @@ namespace Repository.Contacto
 {
     public interface IContacto
     {
-        DataSet ReadAll(int Id);
+        DataSet ReadAll(VoContacto Contacto);
         DataSet ReadId(int Id);
         DataSet Save(VoContacto Contacto);
         DataSet Delete(int Id);
